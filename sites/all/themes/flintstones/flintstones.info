@@ -4,19 +4,24 @@ version = 0
 core = 7.x
 
 
-stylesheets[all][] = css/app.css
+stylesheets[all][] = css/bootstrap.css
+stylesheets[all][] = css/bootstrap-theme.css
 stylesheets[print][] = css/print.css
 
 
-javascript[all][] = js/app.js
+javascript[all][] = js/bootstrap.js
 
-regions[header] = Header
-regions[highlighted] = Highlighted
-regions[help] = Help
-regions[content] = Content
-regions[sidebar_first] = Left sidebar
-regions[sidebar_second] = Right sidebar
-regions[footer] = Footer
+
+regions[navigation]     = 'Navigation'
+regions[header]         = 'Top Bar'
+regions[highlighted]    = 'Highlighted'
+regions[help]           = 'Help'
+regions[content]        = 'Content'
+regions[sidebar_first]  = 'Primary'
+regions[sidebar_second] = 'Secondary'
+regions[footer]         = 'Footer'
+regions[page_top]       = 'Page top'
+regions[page_bottom]    = 'Page bottom'
 
 
 features[] = logo
