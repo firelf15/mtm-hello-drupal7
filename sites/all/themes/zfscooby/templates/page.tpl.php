@@ -10,7 +10,7 @@
 
 <div id="page">
 
-  <header class="header" id="header" role="banner">
+  <header class="scooby-panel clearfix" id="header" role="banner">
 
     <?php if ($logo): ?>
       <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" class="header__logo" id="logo"><img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" class="header__logo-image" /></a>
@@ -30,7 +30,7 @@
       </div>
     <?php endif; ?>
     <?php if ($secondary_menu): ?>
-      <nav class="header__secondary-menu" id="secondary-menu" role="navigation">
+      <!-- <nav class="header__secondary-menu" id="secondary-menu" role="navigation">
         <?php print theme('links__system_secondary_menu', array(
           'links' => $secondary_menu,
           'attributes' => array(
@@ -42,16 +42,16 @@
             'class' => array('element-invisible'),
           ),
         )); ?>
-      </nav>
+      </nav> -->
     <?php endif; ?>
 
     <?php print render($page['header']); ?>
 
   </header>
 
-  <div id="main">
+  <div id="main row" class="panel clearfix">
 
-    <div id="content" class="column" role="main">
+    <div id="content" class="small-12 large-8 columns" role="main">
       <!-- MONIKA'S DEBUG -->
   <h1>Scooby Dooby Doo New page.tpl.php </h1>
       <?php print render($page['highlighted']); ?>
@@ -72,7 +72,7 @@
       <?php print $feed_icons; ?>
     </div>
 
-    <div id="navigation">
+    <!-- <div id="navigation">
 
       <?php if ($main_menu): ?>
         <nav id="main-menu" role="navigation" tabindex="-1">
@@ -97,7 +97,7 @@
 
       <?php print render($page['navigation']); ?>
 
-    </div>
+    </div> -->
 
     <?php
       // Render the sidebars to see if there's anything in them.
@@ -106,7 +106,7 @@
     ?>
 
     <?php if ($sidebar_first || $sidebar_second): ?>
-      <aside class="sidebars">
+      <aside class="sidebars small-12 large-4 columns">
         <?php print $sidebar_first; ?>
         <?php print $sidebar_second; ?>
       </aside>
