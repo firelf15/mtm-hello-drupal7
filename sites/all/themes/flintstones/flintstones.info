@@ -4,12 +4,11 @@ version = 0
 core = 7.x
 
 
-stylesheets[all][] = css/bootstrap.css
-stylesheets[all][] = css/bootstrap-theme.css
-stylesheets[print][] = css/print.css
+stylesheets[all][] = stylesheets/styles.css
+stylesheets[print][] = stylesheets/print.css
 
 
-javascript[all][] = js/bootstrap.js
+javascript[all][] = javascripts/bootstrap.min.js
 
 
 regions[navigation]     = 'Navigation'
