@@ -22,6 +22,9 @@ regions[footer]         = 'Footer'
 regions[page_top]       = 'Page top'
 regions[page_bottom]    = 'Page bottom'
 
+regions[jumbo_first]	= 'Jumbo Section 1'
+regions[jumbo_second]	= 'Jumbo Section 2'
+regions[jumbo_third]	= 'Jumbo Section 3'
 
 features[] = logo
 features[] = name
