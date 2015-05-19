@@ -1,6 +1,7 @@
 <?php
-
 /**
+ *
+ *
  * @file
  * Default theme implementation to display a single Drupal page.
  *
@@ -65,7 +66,7 @@
  * - $page['footer']: Items for the footer region.
  * - $page['jumbo_first']: Items for the first jumbo column.
  * - $page['jumbo_second']: Items for the second jumbo column.
- * - $page['jumbo_third']: Items for the third jumbo column. 
+ * - $page['jumbo_third']: Items for the third jumbo column.
  *
  * @see template_preprocess()
  * @see template_preprocess_page()
@@ -75,100 +76,127 @@
  * @ingroup themeable
  */
 ?>
+<?php if ($main_menu): ?>
+    <!-- <div id="main-menu" class="navigation"> -->
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <?php
+                print theme('links__system_main_menu', array(
+                    'links' => $main_menu,
+                    'attributes' => array(
+                        'id' => 'main-menu-links',
+                        'role' => 'navigation',
+                        'class' => array('nav', 'nav-pills', 'links', 'clearfix'),
+                    ),
+                    'heading' => array(
+                        'text' => t('Main menu'),
+                        'level' => 'h2',
+                        'class' => array('element-invisible'),
+                    ),
+                ));
+                ?>
+            </div>
+        </div>
+    </nav><!-- /#main-menu -->
+<?php endif; ?>
 
-<nav class="navbar navbar-inverse navbar-fixed-top">
-  <div class="container">
-    <div class="navbar-header">
-      <?php print render($main_menu); ?>
-    </div>
-  </div>
-</nav>
-
-    <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
-      <div class="container">
-            <div id="header"><div class="section clearfix">
-
-      <?php if ($logo): ?>
-        <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">
-          <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
-        </a>
-      <?php endif; ?>
-
-      <?php if ($site_name || $site_slogan): ?>
-        <div id="name-and-slogan">
-          <?php if ($site_name): ?>
-            <?php if ($title): ?>
-              <div id="site-name"><strong>
-                <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home"><span><?php print $site_name; ?></span></a>
-              </strong></div>
-            <?php else: /* Use h1 when the content title is empty */ ?>
-              <h1 id="site-name">
-                <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home"><span><?php print $site_name; ?></span></a>
-              </h1>
-            <?php endif; ?>
-          <?php endif; ?>
-
-          <?php if ($site_slogan): ?>
-            <div id="site-slogan"><?php print $site_slogan; ?></div>
-          <?php endif; ?>
-        </div> <!-- /#name-and-slogan -->
-      <?php endif; ?>
-
-      <?php print render($page['header']); ?>
-
-    </div></div> <!-- /.section, /#header -->
-      </div>
-    </div>
-
-
-
-
+<?php if ($secondary_menu): ?>
+    <div id="secondary-menu" class="navigation">
+        <?php
+        print theme('links__system_secondary_menu', array(
+            'links' => $secondary_menu,
+            'attributes' => array(
+                'id' => 'secondary-menu-links',
+                'class' => array('links', 'inline', 'clearfix'),
+            ),
+            'heading' => array(
+                'text' => t('Secondary menu'),
+                'level' => 'h2',
+                'class' => array('element-invisible'),
+            ),
+        ));
+        ?>
+    </div> <!-- /#secondary-menu -->
+<?php endif; ?>
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="jumbotron">
     <div class="container">
-<div id="content" class="column"><div class="section">
-        <?php if ($page['highlighted']): ?><div id="highlighted"><?php print render($page['highlighted']); ?></div><?php endif; ?>
-        <a id="main-content"></a>
-        <?php print render($title_prefix); ?>
-        <?php if ($title): ?><h1 class="title" id="page-title"><?php print $title; ?></h1><?php endif; ?>
-        <?php print render($title_suffix); ?>
-        <?php if ($tabs): ?><div class="tabs"><?php print render($tabs); ?></div><?php endif; ?>
-        <?php print render($page['help']); ?>
-        <?php if ($action_links): ?><ul class="action-links"><?php print render($action_links); ?></ul><?php endif; ?>
-        <?php print render($page['content']); ?>
-        <?php print $feed_icons; ?>
-      </div>
+        <div id="header"><div class="section clearfix">
 
+                <?php if ($logo): ?>
+                    <div class="col-md-2"><a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">
+                            <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
+                        </a></div>
+                <?php endif; ?>
 
+                <?php if ($site_name || $site_slogan): ?>
+                    <div id="name-and-slogan" class="col-md-10 right">
+                        <?php if ($site_name): ?>
+                            <?php if ($title): ?>
+                                <div id="site-name"><strong>
+                                        <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home"><span><?php print $site_name; ?></span></a>
+                                    </strong></div>
+                            <?php else: /* Use h1 when the content title is empty */ ?>
+                                <h1 id="site-name">
+                                    <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home"><span><?php print $site_name; ?></span></a>
+                                </h1>
+                            <?php endif; ?>
+                        <?php endif; ?>
 
+                        <?php if ($site_slogan): ?>
+                            <div id="site-slogan"><?php print $site_slogan; ?></div>
+                        <?php endif; ?>
+                    </div> <!-- /#name-and-slogan -->
+                <?php endif; ?>
 
-      <!-- Example row of columns -->
-      <div class="row">
-        <div class="col-md-4">
-          <?php if ($page['jumbo_first']): ?>
-        <div id="jumbo_first" class="jumbo_first"><div class="section">
-          <?php print render($page['jumbo_first']); ?>
-        </div></div> <!-- /.section, /#sidebar-first -->
-      <?php endif; ?>
+                <?php print render($page['header']); ?>
+
+            </div></div> <!-- /.section, /#header -->
+    </div>
+</div>
+<div class="container">
+    <div id="content" class="column">
+        <div class="section">
+            <?php if ($page['highlighted']): ?><div id="highlighted"><?php print render($page['highlighted']); ?></div><?php endif; ?>
+            <a id="main-content"></a>
+            <?php print render($title_prefix); ?>
+            <?php if ($title): ?><h1 class="title" id="page-title"><?php print $title; ?></h1><?php endif; ?>
+            <?php print render($title_suffix); ?>
+            <?php if ($tabs): ?><div class="tabs"><?php print render($tabs); ?></div><?php endif; ?>
+            <?php print render($page['help']); ?>
+            <?php if ($action_links): ?><ul class="action-links"><?php print render($action_links); ?></ul><?php endif; ?>
+            <?php print render($page['content']); ?>
+            <?php print $feed_icons; ?>
         </div>
-        <div class="col-md-4">
-                    <?php if ($page['jumbo_second']): ?>
-        <div id="jumbo_second" class="jumbo_second"><div class="section">
-          <?php print render($page['jumbo_second']); ?>
-        </div></div> <!-- /.section, /#sidebar-first -->
-      <?php endif; ?>
-       </div>
-        <div class="col-md-4">
-                    <?php if ($page['jumbo_third']): ?>
-        <div id="jumbo_third" class="jumbo_third"><div class="section">
-          <?php print render($page['jumbo_third']); ?>
-        </div></div> <!-- /.section, /#sidebar-first -->
-      <?php endif; ?>
+        <!-- Example row of columns -->
+        <div class="row">
+            <div class="col-md-4">
+                <?php if ($page['jumbo_first']): ?>
+                    <div id="jumbo_first" class="jumbo_first"><div class="section">
+                            <?php print render($page['jumbo_first']); ?>
+                        </div></div> <!-- /.section, /#sidebar-first -->
+                <?php endif; ?>
+            </div>
+            <div class="col-md-4">
+                <?php if ($page['jumbo_second']): ?>
+                    <div id="jumbo_second" class="jumbo_second"><div class="section">
+                            <?php print render($page['jumbo_second']); ?>
+                        </div></div> <!-- /.section, /#sidebar-first -->
+                <?php endif; ?>
+            </div>
+            <div class="col-md-4">
+                <?php if ($page['jumbo_third']): ?>
+                    <div id="jumbo_third" class="jumbo_third"><div class="section">
+                            <?php print render($page['jumbo_third']); ?>
+                        </div></div> <!-- /.section, /#sidebar-first -->
+                <?php endif; ?>
+            </div>
         </div>
-      </div>
 
-      <hr>
-
-<footer>
-         <?php print render($page['footer']); ?>
-</footer>
-</div> <!-- /container -->
+        <hr>
+        <footer>
+            <?php print render($page['footer']); ?>
+        </footer>
+    </div> <!-- /container -->
