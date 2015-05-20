@@ -172,21 +172,21 @@
         </div>
         <!-- Example row of columns -->
         <div class="row">
-            <div class="col-md-4">
+            <div id="jumbo1" class="col-md-4">
                 <?php if ($page['jumbo_first']): ?>
                     <div id="jumbo_first" class="jumbo_first"><div class="section">
                             <?php print render($page['jumbo_first']); ?>
                         </div></div> <!-- /.section, /#sidebar-first -->
                 <?php endif; ?>
             </div>
-            <div class="col-md-4">
+            <div id="jumbo2" class="col-md-4">
                 <?php if ($page['jumbo_second']): ?>
                     <div id="jumbo_second" class="jumbo_second"><div class="section">
                             <?php print render($page['jumbo_second']); ?>
                         </div></div> <!-- /.section, /#sidebar-first -->
                 <?php endif; ?>
             </div>
-            <div class="col-md-4">
+            <div id="jumbo3" class="col-md-4">
                 <?php if ($page['jumbo_third']): ?>
                     <div id="jumbo_third" class="jumbo_third"><div class="section">
                             <?php print render($page['jumbo_third']); ?>

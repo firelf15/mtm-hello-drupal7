@@ -15,7 +15,12 @@ default:
       text:
         log_out: 'Log out'
       region_map:
+        header: '#header'
         content: '#content'
+        footer: '#footer'
+        jumbo_first: '#jumbo1'
+        jumbo_second: '#jumbo2'
+        jumbo_third: '#jumbo3'
       selectors:
         message_selector: '.messages.status'
 
