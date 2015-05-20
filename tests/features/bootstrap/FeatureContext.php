@@ -11,8 +11,10 @@ use Behat\Gherkin\Node\PyStringNode,
 use Behat\Behat\Context\Step\Given;
 use Behat\Behat\Context\Step\When;
 use Behat\Behat\Context\Step\Then;    
-
-
+/**
+ * Monika was here 
+ */
+use Drupal\DrupalExtension\Context\RawDrupalContext;
 
 /**
  * Features context.
@@ -22,5 +24,5 @@ class FeatureContext extends DrupalContext {
 
 
 /**
- * Monika was hear.
+ * Monika was here.
  */
