@@ -12,6 +12,7 @@ default:
       selenium2: ~
     Drupal\DrupalExtension\Extension:
       blackbox: ~
+      api_driver: 'drupal'
       text:
         log_out: 'Log out'
       region_map:

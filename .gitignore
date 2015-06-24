@@ -34,6 +34,7 @@ xmlrpc.php
 /profiles
 /scripts
 /themes
+/disable-modules
 
 # Ignore misc Mac stuff
 .DS_Store
