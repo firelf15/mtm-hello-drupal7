@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Mystery Inc feature.
+ */
+
+include_once 'mystery_inc.features.inc';

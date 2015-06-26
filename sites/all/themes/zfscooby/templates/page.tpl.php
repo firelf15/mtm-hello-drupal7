@@ -52,8 +52,6 @@
   <div id="main row" class="panel clearfix">
 
     <div id="content" class="small-12 large-8 columns" role="main">
-      <!-- MONIKA'S DEBUG -->
-  <h1>Scooby Dooby Doo New page.tpl.php </h1>
       <?php print render($page['highlighted']); ?>
       <?php print $breadcrumb; ?>
       <a id="main-content"></a>

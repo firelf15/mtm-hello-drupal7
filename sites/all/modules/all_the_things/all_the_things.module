@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the All The Things feature.
+ */
+
+include_once 'all_the_things.features.inc';
